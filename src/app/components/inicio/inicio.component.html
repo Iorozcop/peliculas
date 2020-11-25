@@ -1,0 +1,39 @@
+
+    <p-panel header="BUSCADOR DE PELÍCULAS">
+        <p>Búsqueda por nombre de película</p>       
+        <div class="p-inputgroup" [style]="{'width': '50%', 'margin-bottom': '20px'}">
+            <input type="text" pInputText placeholder="Nombre película" [(ngModel)] ="busqueda">    
+            <button type="button" pButton pRipple label="Search" (click)=buscar(busqueda);></button>  
+        </div> 
+        
+        <p-table [value]="peliculas" [responsive]="true" *ngIf="mostrar" [style]="{'width': '100%'}">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Título</th>
+                    <th>Cartel</th>
+                    <th>Año</th>
+                    <th>Ficha</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-pelicula>
+                <tr>
+                    <td>{{pelicula.Title}}</td>
+                    <td><img [src]="pelicula.Poster" alt="Cartel no encontrado" width="100" class="p-shadow-4" /></td>
+                    <td>{{pelicula.Year}}</td>
+                    <td><button type="button" pButton pRipple label="Ver ficha" 
+                [routerLink]="['/ficha',pelicula.imdbID]" [style]="{'width': '120px', 'margin': '20px'}"></button></td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+                <div class="p-d-flex p-ai-center p-jc-between">
+                    In total there are {{peliculas ? peliculas.length : 0 }} films.
+                </div>
+            </ng-template>
+        </p-table>
+        <p-footer>
+            By Isabel Orozco Puerto
+        </p-footer>
+    </p-panel>
+
+
+

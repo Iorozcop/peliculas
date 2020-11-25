@@ -1,0 +1,45 @@
+
+  <p-panel header="FICHA PELÍCULA"> 
+    <p-table [value]="dataFilm" [responsive]="true" [style]="{'width': '100%'}">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Cartel</th>
+                <th>Info</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-dataFilm>
+            <tr>
+                <td><img alt="Card" [src]="dataFilm.Poster" alt="Cartel no encontrado" width="50%" class="p-shadow-4" /></td>
+                <td>
+                    <p><b>Título</b>: {{dataFilm.Title}}</p>
+                    <p><b>Estreno</b>: {{dataFilm.Released}}</p>
+                    <p><b>Idioma</b>: {{dataFilm.Language}}</p>
+                    <p><b>Director</b>: {{dataFilm.Director}}</p>
+                    <p><b>Reparto</b>: {{dataFilm.Actors}}</p>
+                    <p><b>Premios</b>: {{dataFilm.Awards}}</p>
+                    <p><b>Formato</b>: {{dataFilm.Type}}</p>
+                    <p [style]="{'width':'70%'}"><b>Sinopsis</b>: {{dataFilm.Plot}}</p>
+                    
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+    <p-footer>
+        By Isabel Orozco Puerto
+    </p-footer>
+  </p-panel>    
+
+
+   <!-- <p-panel header="FICHA PELÍCULA">
+        <p-card header="{{dataFilm.Title}}" subheader="Estreno: {{dataFilm.Released}}" [style]="{'width': '25rem', 'margin-bottom': '2em'} ">
+            <ng-template pTemplate="header">
+                <img alt="Card" [src]="dataFilm.Poster">
+            </ng-template>
+            <p><b>Director: </b> {{dataFilm.Director}}</p>
+            <p><b>Reparto: </b> {{dataFilm.Actors}}</p>
+            <p><b>Sinopsis: </b>{{dataFilm.Plot}}</p>
+        </p-card>
+        <p-footer>
+            By Isabel Orozco Puerto
+        </p-footer>
+    </p-panel> --> 
